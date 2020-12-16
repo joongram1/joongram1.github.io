@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: ML
-slug: ml
-category: dev
+title: Env
+slug: env
+category: env
 menu: false
 order: 3
 ---
