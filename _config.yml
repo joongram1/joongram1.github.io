@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               joongram1 DevLog
+title:               joon's DevLog
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -13,7 +13,7 @@ url:                 https://joongram1.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             "The place I accumulate my collected data"
+tagline:             "The place I gather my data"
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
@@ -22,7 +22,7 @@ description:         >
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              joongram1
+  name:              joon
   email:             joongram1@gmail.com
 
 # Fallback image and color
@@ -137,4 +137,3 @@ tipue_search:
     files: [search.html, index.html, tags.html]
     categories: []
     tags: []
-    
