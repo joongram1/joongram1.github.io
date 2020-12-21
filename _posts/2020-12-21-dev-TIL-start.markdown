@@ -2,11 +2,10 @@
 layout: post
 title: TIL (Today I learned) 시작
 subtitle: TIL 시작
-categorites: dev
+categories: dev
 tags: TIL Today I learned
 comments: true
 published: true
-categories: dev
 ---
 
 ## TIL (Today I learned) 시작
