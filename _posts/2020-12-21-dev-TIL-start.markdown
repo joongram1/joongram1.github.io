@@ -8,9 +8,6 @@ comments: true
 published: true
 ---
 
-## TIL (Today I learned) 시작
----
-
 오늘 했던 일, 느낀점, 공부 내용을 매일 간단하게 정리하려고 합니다. 
 
 I will try to summarize what I did today, what I felt,  
