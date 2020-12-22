@@ -3,7 +3,7 @@ layout: post
 title: TIL (Today I learned) 시작
 subtitle: TIL 시작
 categories: dev
-tags: TIL Today I learned
+tags: til
 comments: true
 published: true
 ---
