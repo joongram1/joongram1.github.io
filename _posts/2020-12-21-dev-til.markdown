@@ -3,7 +3,7 @@ layout: post
 title: TIL 2020-12-21 
 subtitle: TIL 
 categories: dev
-tags: TIL 앨리스코딩 문과생 머신러닝 데이터과학 
+tags: til 앨리스코딩 문과생 머신러닝 데이터과학 
 comments: true
 ---
 
