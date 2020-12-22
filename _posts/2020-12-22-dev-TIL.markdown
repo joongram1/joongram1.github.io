@@ -1,0 +1,108 @@
+---
+layout: post
+title: TIL 2020-12-22 
+subtitle: TIL 
+categories: dev
+tags: TIL 앨리스코딩 문과생 머신러닝 데이터과학 
+comments: true
+---
+
+
+> 2020-12-22 TIL(Today I learned)
+---
+
+> `앨리스코딩`의 `"문과생을 위한 머신러닝"`을 보고 작성한 공부노트 입니다.
+---
+
+* __데이터?__
+  - `현실 세계의 어떤 현상`을 관찰하여 기록한 것
+ 
+* __Feature?__
+  - 데이터를 `컴퓨터가 이해할 수 있도록` 수치 또는 디지털로 `표현`한 것
+  - 예 : 남자/여자 > 0/1
+ 
+* __Target?__
+  - 예측하려는 목표
+  - 데이터 준비, Target 설정, Labeling 작업 > 데이터의 Quality 증가
+ 
+* __Model?__
+  - 실제의 무엇을 더 작게 `추상화된 형태`로 표현한 것. 모형 또는 본보기.
+  - 머신러닝 모델 : 어떠한 문제를 해결하기 위해 수립한 가설을 논리적/수학적 함수식 형태로 표현한 것
+ 
+* __알고리즘?__
+  - `입력`된 자료를 바탕으로 원하는 `결과`를 유도하기 위해 일련의 논리적인 순서, 절차를 `규칙화`한 것
+  - 머신러닝 알고리즘 : 문제 해결을 위한 함수식(모델)을 만들어 내는 `일련의 절차, 규칙`
+  
+* __학습__
+  - 예측 목표로부터 예측 결과의 `오차를 최소화`하는 함수식(모델)을 찾아내는 과정
+
+* __데이터 준비__
+  - 데이터 수집, 획득
+  
+  - 데이터 전처리 : 컴퓨터가 좀 더 잘 받아들일 수 있는 형태로  `Data를 가공`하는 작업
+    + Vectorization(수학적 표현)
+    + Nomalization(표준화)
+    + Handling Missing Values(결측값 처리)
+    
+  - Feature Engineering : `도메인 지식`을 활용, 머신러닝 알고리즘이 학습을 잘 진행할 수 있도록 전처리 데이터를 변환하는 작업
+    + 변환, 생성, 선택, 추출...
+    + Numerical(숫자 - Age, Height, Price...) / Categorical(범주 - Gender, Class, Job)
+     
+* __머신러닝 프로세스 - 문제 정의__
+  - 머신러닝 프로젝트를 시작할 때 해결해야 하는 `비즈니스 문제`를 명확하게 먼저 정의
+  - 비즈니스 문제를 파악한 후, 이를 해결하기 위한 데이터 과학과 `머신러닝 문제`로 전환
+ 
+* __머신러닝 유형__
+  - Supervised Learning(지도학습) : Input & Output Data를 통해 예측 모델 개발
+    + Classification(분류 - 범주를 예측) 
+    + Regression(회귀 - 숫자를 예측)
+    
+  - Unsupervised Learning(비지도학습) : Input Data만 존재, 그룹핑 및 패턴 분석에 집중
+    + Clustering(군집화)
+    
+* __현실의 문제 > 머신러닝 문제로__
+  |  현실의 문제(Business Problem) | Target/Output | 머신러닝 문제 | 
+  |  :--- | :---: | :---: |
+  | 고객이 서비스를 이탈할 것인가 | 범주 : 이탈여부 |  Classification |
+  | 내년도 서비스 예상 매출액은 얼마인가 | 숫자 : 매출액 | Regression |
+  | 사용자 정보와 구매이력 기반 고객 세분화 | - | Clustering |
+  
+  - 기타 머신러닝 문제 
+    + Recommender System(추천 시스템)
+    + Anomaly Detection(이상 탐지)
+    + Network Analysis(네트워크 분석)
+    + Dimensionality Reduction(차원 축소)
+    + Profiling(프로파일링)
+    + Time series Forecasting(시계열 예측 분석)
+    
+* __효과검증 설계__
+  - 머신러닝 도입에 따른 효과 검증 프레임워크
+  - 문제 정의 > 가설 설정 > 해결 방안 > 효과 검증 순서로 진행
+  
+* __모델 구축 및 평가__
+  - 머신러닝 문제로 전환하고 데이터 준비를 마친 후 적절한 머신러닝 모델 & 알고리즘 선택하여 모델 구축 및 평가
+  
+  |  머신러닝 모델 | 알고리즘 | 결과 |  
+  |  :---: | :---: | :---: |  
+  | Classification | Logistic Regression, Decision Tree, Support Vector Machine | 범주 예측 |  
+  | Regression | Linear Regression, Ridge Regression, Lasso Regression | 숫자 예측 |  
+  | Clustering | K-means, DBscan | 군집 |  
+ 
+  - Regression : 실제값, 예측값의 차이 `오차`를 통해 모델 성능 평가
+  - Classification : 실제 범주, 예측한 범주의 `일치하는 정도`를 통해 모델 성능 평가 
+    + Accuracy, Confusion Matrix, F-measure, AUC
+
+* __비즈니스 관점의 모델 평가__
+  - 모델 도입을 통해 기대되는 손익이 더 중요할 수 있음
+
+* __최종 모델 평가__
+  - 머신러닝 관점에서 `정확도`가 높고, 비즈니스 관점에서 `기대손익`이 좋은 모델을 최종 선택
+ 
+ 
+---
+ 
+데이터를 어떻게 준비하는 지부터 머신러닝 모델 구축 및 평가까지 전체 흐름을 짚어보았다.  
+디테일한 부분은 앞으로 체득하면서 채워나가 보겠다.
+ 
+---
+* 출처 : 앨리스코딩(http://elice.io)
