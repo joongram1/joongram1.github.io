@@ -33,10 +33,27 @@ comments: true
   - np.concatenate([x,y] : array(x, y)를 이어 붙임
   - np.split : axis 축을 기준으로 나눌 수 있다.  
     
+    
+* __기본 연산__
+  - NumPy는 기본 연산을 지원한다(+, -, *, /)
+  - 브로드캐스팅 : Shape이 다른 array끼리 연산
+  - 집계함수 
+    + np.sum(x) : 합계
+    + np.min(x) : 최소값
+    + np.max(x) : 최대값
+    + np.mean(x) : 평균
+    + np.std(x) : 표준편차
+    + np.sum(x, axis = 0) : 세로 방향으로 합산
+    + np.sum(x, axis = 1) : 가로 방향으로 합산
+  - 마스킹 연산 : True, False array를 통해 특정 값들을 뽑아내는 방법
+    x = np.arange(5)
+      + x < 3 
+      + x > 5
+      + x[x < 3] : x가 3보다 작은 값들(True)만 추출
+    
 ---
- 
-데이터를 어떻게 준비하는 지부터 머신러닝 모델 구축 및 평가까지 전체 흐름을 짚어보았다.  
-디테일한 부분은 앞으로 체득하면서 채워나가 보겠다.
+
+수학적인 연산을 쉽게 할 수 있는 NumPy에 대해 배워보았다.
  
 ---
 * 출처 : 앨리스코딩(http://elice.io)
