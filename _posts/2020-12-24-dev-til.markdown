@@ -45,10 +45,13 @@ comments: true
   - dataframe = pd.DataFrame(columns = ['이름', '나이', '주소])
   - 리스트로 추가하는 방법
     + dataframe.loc[0] = ['철수', '25', '서울']
+    
   - 딕셔너리로 추가하는 방법
     + dataframe.loc[1] = {'이름' : '영희', '나이' : '26', '주소' : '인천'}
+    
   - 수정
     + dataframe.loc[1, '이름'] = '정훈'
+    
   - 새 컬럼 추가
     + dataframe['전화번호'] = np.nan # nan = Not a number(비어있음)
     + dataframe.loc[0, '전화번호'] = '01012345678'
@@ -58,4 +61,68 @@ comments: true
       dataframe["이름"]
     + 리스트로 들어가 있다 : DataFrame
       dataframe["이름", "주소", "나이"]
-      
+  
+  - 누락된 데이터 체크
+    + dataframe.isnull() : 비어 있는 값을 True로
+    + dataframe.notnull() : 값 채워진 것을 True로
+    + dataframe.dropna() : 비어 있는 값을 삭제
+    + dataframe['전화번호'] = dataframe['전화번호'].fillna('전화번호 없음') : 비어 있는 값 채우기
+    
+  - Series 연산
+    + A.add(B, fill_value = 0)
+    
+  - 값으로 정렬하기
+    + sort_values('col1', ascending = False) : col1을 기준으로 내림차순 정렬
+    + sort_values('col1', 'col2') : col1을 기준으로 먼저 정렬, 그 후 col2를 기준으로 정렬
+
+* __DataFrame 심화__
+  - 마스킹 연산, 쿼리 
+    + df[('A' < 0.5) & ('B' > 0.3)]
+    + df.query('A < 0.5 and B > 0.3']
+    
+  - 조건으로 검색하기(문자열)
+    + df["Animal"] = str.contains["Cat"]
+    + df.Animal.str.match("Cat")
+    
+  - 함수로 데이터 처리하기
+    + df["Square"] = df["Num"].apply(square)
+    + df["Square"] = df.Num.apply(lambda x : x ** 2)
+    
+    + df["Sex"] = df.Sex.replace({"Male" : 0, "Female" : 1})
+    + df.Sex.replace({"Male" : 0, "Female" : 1}, inplace = True)
+    
+  - 그룹으로 묶기
+    + df.groupby('key')
+    + df.groupby('key').sum()
+    + df.groupby(['key', 'data1']).sum()
+    
+    + df.groupby('key').aggregate(['min', np.median, max])
+    + df.groupby('key').aggregate({'data1' : 'min', 'data2' : np.sum})
+    
+    + def filter_by_mean(x):
+        return x['data2'].mean() > 3
+    + df.groupby('key').mean()
+    + df.groupby('key').filter(filter_by_mean)
+    
+    + df.groupby('key').apply(lambda x : x.max() - x.min())
+    
+    + get_group : groupby로 묶인 데이터에서 key값으로 데이터를 가져옴
+      df.groupby("시도").get_group("충남")
+
+* __Multi Index__
+  - Multi Index : 인덱스를 계층적으로 만들 수 있다.
+  
+* __pivot_table__
+  - index : 행 인덱스로 들어갈 key
+  - column : 열 인덱스로 라벨링될 값
+  - value : 분석할 데이터
+  - df.pivot_table(index='sex', columns='class', values='survived', aggfunc=np.mean)
+  
+---
+
+NumPy에 이어 Pandas에 대해 배워보았다.  
+기존 업무 중에 엑셀 활용하여 처리했던 것들을 코딩으로 풀 수 있다는 점이 흥미로웠다.
+
+---
+
+* 출처 : www.elice.io
