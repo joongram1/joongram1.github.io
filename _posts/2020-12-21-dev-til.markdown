@@ -71,4 +71,4 @@ comments: true
 빠르게 학습하고 파이썬 기초 다시 짚어보러 가야겠다.
  
 ---
-* 출처 : 앨리스코딩(http://elice.io)
+* 출처 : www.elice.io
