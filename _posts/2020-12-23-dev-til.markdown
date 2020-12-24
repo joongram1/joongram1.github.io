@@ -56,4 +56,4 @@ comments: true
 수학적인 연산을 쉽게 할 수 있는 NumPy에 대해 배워보았다.
  
 ---
-* 출처 : 앨리스코딩(http://elice.io)
+* 출처 : www.elice.io
