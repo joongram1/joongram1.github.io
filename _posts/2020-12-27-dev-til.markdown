@@ -53,4 +53,43 @@ comments: true
       ":" : dotted
     + Color: "r", "green", "0.8", "#524FA1" 
     + Marker : ".", "o", "v", "s", "*"
-    + 축 
+    + 축 경계 조정하기
+      ax.set_xlim(-2, 12)
+      ax.set_ylim(-1.5, 1.5)
+    + Legend(범례)
+      ax.legend(loc="upper right", shadow=True, fancybox=True, borderpad=2)
+
+
+  - Scatter(산전도)
+    + ax.plot(x, x**2, "o", markersize=15, markerfacecolor="white", markeredgecolor="blue")
+    + fig, ax = plt.subplots()
+      x = np.random.randn(50)
+      y = np.random.randn(50)
+      colors = np.random.randint(0, 100, 50) : 0~100 사이 중 50개 랜덤 선택
+      sizes = 500 * np.pi * np.random.rand(50) ** 2
+      ax.scatter(x, y, c=colors, s=sizes, alpha=0.3) : alpha = 투명도
+
+
+  - Bar plot
+    + fig, ax = plt.subplots(figsize=(12,4))
+    + ax.bar(x, x*2)
+    
+    + x = np.random.rand(3)
+      y = np.random.rand(3)
+      z = np.random.rand(3)
+      data = [x , y , z]
+      
+    + fig, ax = plt.subplots()
+      x_ax = np.arange(3)
+      for i in x_ax:
+        ax.bar(x_ax, data[i], bottom=np.sum(data[:i], axis=0))
+      ax.set_xticks(x_ax)
+      ax.set_xticklabels(["A", "B", "C"])
+      
+  - Histogram
+    + fix, ax = plt.subplots()
+    + data = np.random.randn(1000)
+    + ax.hist(data, bins=50) : bins = 얼마만큼 막대기를 보여줄 것인지?
+    
+*__Matplotlib with pandas__
+  - df. 
