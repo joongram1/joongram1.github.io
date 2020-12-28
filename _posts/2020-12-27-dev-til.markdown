@@ -108,4 +108,9 @@ comments: true
     ax.set_ylabel("Defense")  
     ax.legend(loc="upper right")  
     
-    
+---
+
+matplotlib으로 쉽게 그래프를 그릴 수 있었다.  
+데이터 분석 결과를 보여줄 때 적극 활용할 것 같다.
+
+---
