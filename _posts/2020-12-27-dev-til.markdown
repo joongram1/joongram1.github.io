@@ -47,27 +47,27 @@ comments: true
     + y = x ** 2
     + ax.plot(x, y, linestyle=":", marker="*", color="#524FA1")
     + Line style 
-      "-" : solid
-      "--" : dashed
-      "-." : dashdot
-      ":" : dotted
+      "-" : solid  
+      "--" : dashed  
+      "-." : dashdot  
+      ":" : dotted  
     + Color: "r", "green", "0.8", "#524FA1" 
     + Marker : ".", "o", "v", "s", "*"
     + 축 경계 조정하기
-      ax.set_xlim(-2, 12)
+      ax.set_xlim(-2, 12)  
       ax.set_ylim(-1.5, 1.5)
-    + Legend(범례)
+    + Legend(범례)  
       ax.legend(loc="upper right", shadow=True, fancybox=True, borderpad=2)
 
 
   - Scatter(산전도)
     + ax.plot(x, x**2, "o", markersize=15, markerfacecolor="white", markeredgecolor="blue")
-    + fig, ax = plt.subplots()
-      x = np.random.randn(50)
-      y = np.random.randn(50)
-      colors = np.random.randint(0, 100, 50) : 0~100 사이 중 50개 랜덤 선택
-      sizes = 500 * np.pi * np.random.rand(50) ** 2
-      ax.scatter(x, y, c=colors, s=sizes, alpha=0.3) : alpha = 투명도
+    + fig, ax = plt.subplots()  
+      x = np.random.randn(50)  
+      y = np.random.randn(50)  
+      colors = np.random.randint(0, 100, 50) : 0~100 사이 중 50개 랜덤 선택  
+      sizes = 500 * np.pi * np.random.rand(50) ** 2  
+      ax.scatter(x, y, c=colors, s=sizes, alpha=0.3) : alpha = 투명도  
 
 
   - Bar plot
@@ -75,16 +75,16 @@ comments: true
     + ax.bar(x, x*2)
     
     + x = np.random.rand(3)
-      y = np.random.rand(3)
-      z = np.random.rand(3)
-      data = [x , y , z]
+      y = np.random.rand(3)  
+      z = np.random.rand(3)  
+      data = [x , y , z]  
       
-    + fig, ax = plt.subplots()
-      x_ax = np.arange(3)
-      for i in x_ax:
-        ax.bar(x_ax, data[i], bottom=np.sum(data[:i], axis=0))
-      ax.set_xticks(x_ax)
-      ax.set_xticklabels(["A", "B", "C"])
+    + fig, ax = plt.subplots()  
+      x_ax = np.arange(3)  
+      for i in x_ax:  
+        ax.bar(x_ax, data[i], bottom=np.sum(data[:i], axis=0))  
+      ax.set_xticks(x_ax)  
+      ax.set_xticklabels(["A", "B", "C"])  
       
   - Histogram
     + fix, ax = plt.subplots()
@@ -92,20 +92,20 @@ comments: true
     + ax.hist(data, bins=50) : bins = 얼마만큼 막대기를 보여줄 것인지?
     
 * __Matplotlib with pandas__
-  - df = pd.read_csv("./president_heights.csv")
-    fig, ax = plt.subplots()
-    ax.plot(df["order"], df["height(cm)"], label="height")
-    ax.set_xlabel("order")
-    ax.set_ylabel("height(cm)")
-    ax.legend()
+  - df = pd.read_csv("./president_heights.csv")  
+    fig, ax = plt.subplots()  
+    ax.plot(df["order"], df["height(cm)"], label="height")  
+    ax.set_xlabel("order")  
+    ax.set_ylabel("height(cm)")  
+    ax.legend()  
     
-  - fire = df[(df['Type 1'] == 'Fire') | (df['Type2'] == 'Fire')]
-    water = df[(df['Type 1'] == 'Water') | (df['Type2'] == 'Water')]
-    fig, ax = plt.subplots()
-    ax.scatter(fire['Attack'], fire['Defense'], color='R', label='Fire', marker='*', s=50)
-    ax.scatter(water['Attack'], water['Defense'], color='B', label='Water', s=25) 
-    ax.set_xlabel("Attack")
-    ax.set_ylabel("Defense")
-    ax.legend(loc="upper right")
+  - fire = df[(df['Type 1'] == 'Fire') | (df['Type2'] == 'Fire')]  
+    water = df[(df['Type 1'] == 'Water') | (df['Type2'] == 'Water')]  
+    fig, ax = plt.subplots()  
+    ax.scatter(fire['Attack'], fire['Defense'], color='R', label='Fire', marker='*', s=50)  
+    ax.scatter(water['Attack'], water['Defense'], color='B', label='Water', s=25)  
+    ax.set_xlabel("Attack")  
+    ax.set_ylabel("Defense")  
+    ax.legend(loc="upper right")  
     
     
