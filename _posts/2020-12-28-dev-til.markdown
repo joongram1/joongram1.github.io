@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TIL 2020-12-28 
+title: TIL 2020-12-29 
 subtitle: TIL 
 categories: dev
 tags: til 앨리스코딩 파이썬 데이터분석 문자열함수
@@ -8,7 +8,7 @@ comments: true
 ---
 
 
-> 2020-12-28 TIL(Today I learned)
+> 2020-12-29 TIL(Today I learned)
 ---
 
 > `앨리스코딩`의 `"파이썬 실전 데이터분석"` 강의를 듣고 작성한 노트 입니다.
