@@ -20,7 +20,7 @@ comments: true
     file.close()  
     
   - with open('data.txt') as file:  
-    contents = read.file  # 기본적으로 읽기 모드로 파일을 염 
+    contents = file.read()  # 기본적으로 읽기 모드로 파일을 염 
     
   - contents = []  
     with open('data.txt') as file:  
@@ -30,4 +30,54 @@ comments: true
   - with open('data.txt', 'w') as file:  
     file.write('Hello')  # 쓰기 모드로 파일을 염
     
-  - 
+* __데이터 구조 다루기__
+  - 튜플( ) vs 리스트[ ]
+    + 공통점 : 순서가 있는 원소들의 집합
+    + 차이점 : 각 원소의 값을 수정할 수 없음(튜플), 원소의 개수를 바꿀 수 없음(튜플)  
+  - split = line.strip().split(',') 
+    + strip() : 문자열에 사용하는 함수로 앞 뒤의 공백문자를 삭제함
+    
+  - 데이터 형태 변환하기
+    + tuples = []  
+      with open(filename) as file:  
+        for line in file:  
+          split = line.strip().split(',')  
+          word = split[0]  
+          freq = split[1]  
+          new_tuple = (word, freq)  
+          tuples.append(new_tuple)  
+      return tuples  
+          
+  - 리스트로 리스트 만들기(List comprehension)
+    + first_letters = [word[0] for word in words]
+    + new_numbers = [n + 1 for n in numbers]  
+    
+  - 특정 원소 걸러내기
+    + even = [n for n in numbers if n % 2 == 0]
+    + odd = [n + 1 for n in numbers if n % 2 == 0]  
+    
+  - 데이터 정렬하기
+    + sory_by_abs = sorted(numbers, key=abs) # 절대값 순으로 정렬 
+    + sort_by_alphabet = sorted(fruits) # 기본 순서(알파벳순)으로 정렬
+    + def reverse(word):  
+      return str(reversed(word))  
+      sort_by_last = sorted(fruits, key=reverse)  
+    + def get_freq(pair):  
+      return pair[1]  
+    + def sort_by_frequency(pairs):  
+      new_pairs = sorted(pairs, key=get_freq)  
+      return new_pairs  
+      
+    + sorted(corpus, key=itemgetter(1), reverse=True)[:number]  
+      corpus 데이터(
+       
+      
+  * __Counter()__
+    - corpus = Counter(words) : words 문자열에 포함된 각 알파벳의 글자수를 세어줌
+    - Collections 모듈의 Counter 클래스
+    
+  
+  
+    
+    
+    
