@@ -1,0 +1,33 @@
+---
+layout: post
+title: TIL 2020-12-30 
+subtitle: TIL 
+categories: dev
+tags: til 앨리스코딩 파이썬 데이터분석
+comments: true
+---
+
+
+> 2020-12-30 TIL(Today I learned)  
+
+---
+> `앨리스코딩`의 `"파이썬 실적 데이터 분석"` 강의를 듣고 작성한 노트 입니다.
+---
+
+* __파일 다루기__
+  - file = open('data.txt')  
+    content = file.read()  
+    file.close()  
+    
+  - with open('data.txt') as file:  
+    contents = read.file  # 기본적으로 읽기 모드로 파일을 염 
+    
+  - contents = []  
+    with open('data.txt') as file:  
+      for line in file:  
+        contents.append(line)  
+        
+  - with open('data.txt', 'w') as file:  
+    file.write('Hello')  # 쓰기 모드로 파일을 염
+    
+  - 
