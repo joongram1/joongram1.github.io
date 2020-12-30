@@ -69,14 +69,19 @@ comments: true
       return new_pairs  
       
     + sorted(corpus, key=itemgetter(1), reverse=True)[:number]  
-      corpus 데이터(
+      corpus 데이터(튜플로 이루어짐) 중 각 튜플 데이터의 1번째 인덱스값(key=itemgetter(1)을 기준으로  
+      내림차순 정렬(reverse=True), 이후 number값 개수만큼 가장 높은 순으로 데이터 추림  
        
-      
   * __Counter()__
     - corpus = Counter(words) : words 문자열에 포함된 각 알파벳의 글자수를 세어줌
     - Collections 모듈의 Counter 클래스
     
-  
+---
+
+오늘은 데이터를 좀 더 만지는 방법에 대해 배웠다. 
+파이썬에 있는 많은 모듈의 사용법 등을 앞으로 많이 체득해야 겠다.  
+
+---
   
     
     
