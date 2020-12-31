@@ -18,7 +18,7 @@ comments: true
   - CSV : Comma Seperated Value
     + name, age, address, gender
     + 각 열이 특정한 의미를 가짐, 시각화 하기 수월함, 용량이 작음, 데이터 오염에 취약함
-    + name | age | address | gender : delimiter(|)도 구분 문자로 사용 가능 
+    + name "|" age "|" address "|" gender : delimiter(|)도 구분 문자로 사용 가능 
     + 데이터에 ,가 포함된 경우 : ""(큰따옴표)로 데이터를 감싼다
   
   - import csv  
