@@ -3,7 +3,7 @@ layout: post
 title: TIL 2020-12-31 
 subtitle: TIL 
 categories: dev
-tags: til 앨리스코딩 파이썬 데이터분석 
+tags: til 앨리스코딩 파이썬 데이터분석 딕셔너리 집합 그래프
 comments: true
 ---
 
@@ -14,3 +14,72 @@ comments: true
 > `앨리스코딩`의 `"파이썬 실전 데이터 분석"` 강의를 듣고 작성한 노트 입니다.
 ---
 
+* __딕셔너리__
+  - 원하는 데이터를 빠르게 찾아낼 수 있음
+  - accounts = [("kdhong.elice", "Kildong Hong"),...]
+    + for id_, name in accounts:  
+        if id_ == "kdhong.elice":  
+          print(name)  
+          
+  - 리스트는 모든 데이터를 확인하여 값을 산출하기에 딕셔너리에 비해 수십 배 성능 차이가 남  
+  - user, title = line.strip().split(":")  
+    user_to_titles[user(key값)] = title(value값)
+  
+  - 딕셔너리 키 값은 일부 제한 있음 (Value값은 없음)
+    + 변할 수 없는 값만 키 값으로 받음. (키 값 수정 불가능)
+    
+  - 딕셔너리 키 확인하기
+    + print("kdhong" in accounts) # True 
+    + print("elice" in acoounts) # False  
+    
+  - 딕셔너리 순회하기
+    + for username, name in accounts.itmes():  
+      print(username + " - " + name)
+    + items() : 해당 딕셔너리의 key, value값이 tuple로 구성된 리스트로 리턴  
+    
+  - JSON(JavaScript Object Notation)
+    + { key : value } 형태  
+    + 웹 환경에서 데이터를 주고 받는 가장 표준적인 방식, 키를 이용하여 원하는 데이터 빠르게 추출 가능
+    + 데이터가 쉽게 오염되지 않음, 다른 포맷에 비해 용량이 조금 큰 편
+    
+    + JSON -> 딕셔너리 : loads()
+    + 딕셔너리 -> JSON : dumps()
+    
+    
+* __집합(set)__
+  - 특징 : 중복 없음, 순서 없음
+  - set1 = {1 , 2 , 3} # 셋 다 같은 값 (리스트는 순서가 있어 다르게 인식) 
+    set2 = set([1, 2, 3])  
+    set3 = {3, 2, 3, 1}
+  - num_set.add(9)  
+    num_set.update([3, 15, 4])  
+    num_set.remove(7) # 반드시 해당 원소가 있어야 제거 한다(아닐 경우 에러)
+    num_set.discard(13) # 해당 원소가 없으면 그냥 넘어감  
+  - 집합 다루기
+    + print(6 in num_set) # False
+    + print(len(num_set)) # 4 
+    + my_set = {num for num in my_set if num % 2 != 0}
+    
+  - 집합 연산
+    + 교집합, 합집합, 차집합
+    + XOR(Exclusive or) : 교집합을 제외한 나머지 
+    + union = set1 | set2 # 합집합  
+      intersection = set1 & set2 # 교집합  
+      diff = set1 - set2 # 차집합  
+      xor = set1 ^ set2 # XOR  
+      
+* __그래프 설정하기__
+  - 폰트 설정하기
+    + font = fm.FontProperties(fname='./ddd.ttf')
+
+  - 제목 달기
+    + 
+  
+  - 축 별로 라벨 추가하기
+  
+  
+  - 막대 그래프의 tick 예쁘게 그리기
+  
+  
+  - 여백 조정하기
+  
