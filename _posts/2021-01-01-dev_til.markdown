@@ -30,5 +30,35 @@ comments: true
       pages = row[3]  
       print("{} ({}) {}p".format(title, author, pages))
       
-  - 
+* __lambda__ : 한줄짜리 선언하는 등 짧게 사용하는 함수 정의할 때 사용
+  - def square(x) :  
+    return x * x 
+  - square = lambda x : x * x
+    + return 생략, 좀 더 간결하게 코딩 가능  
+    
+  - def get_eng_title(row):  
+    split = row.split(',')  
+    return split[1]  
+    
+    sorted(movies, key=get_eng_title)  
+  - get_eng_title = lambda row: row.split(',')[1]  
+    sorted(movies, key_get_eng_title)  
+    
+  - sorted(movies, key=lambda row: row.split(','[1])  
+  
+  - def square(x):  
+    return x * x  
+    square2 = lambda x: x * x  
+    
+    assert(square1(3) == square2(3)) # 두 값이 같으면 통과, 아니면 에러(AssertionError)  
+  
+  - if condition:  
+    answer = 'a'  
+    else:  
+    answer = 'b'  
+    
+  - answer = 'a' if condition else 'b' 
+  
+  
+  
  
