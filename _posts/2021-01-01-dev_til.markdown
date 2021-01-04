@@ -3,7 +3,7 @@ layout: post
 title: TIL 2021-01-01
 subtitle: TIL 
 categories: dev
-tags: til 앨리스코딩 파이썬 데이터분석 csv
+tags: til 앨리스코딩 파이썬 데이터분석 csv lambda
 comments: true
 ---
 
@@ -59,6 +59,11 @@ comments: true
     
   - answer = 'a' if condition else 'b' 
   
-  
+---
+
+마지막 주 강의인데 쉽지 않다.  
+강의 수강 후에 직접 쳐보면서 복습해야겠다.  
+
+---
   
  
