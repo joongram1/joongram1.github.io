@@ -1,0 +1,38 @@
+---
+layout: post
+title: TIL 2021-01-04
+subtitle: TIL 
+categories: dev
+tags: til 앨리스코딩 파이썬 데이터분석 map filter 
+comments: true
+---
+
+
+> 2021-01-04 TIL(Today I learned)
+---
+
+> `앨리스코딩`의 `"파이썬 실전 데이터 분석"` 강의를 듣고 작성한 노트 입니다.
+---
+
+* __map()__
+  - def get_eng_title(row):  
+    split = row.split(',')  
+    return split[1]  
+    
+  - eng_titles = map(get_eng_title, movies)  
+    eng_titles = map(lambda row: row.split(',')[1], movies)
+    
+  - [get_eng_title(row) for row in movies]  
+    [row.split(',')[1] for row in movies]
+    
+  - map과 list는 동일한가요?
+    + 다르다. 엄밀히는 list가 아닌 map이라는 타입을 가짐
+    + map이라는 타입으로 임시 저장을 해두고, 필요할 때(호출할 때) 연산을 시작함
+  
+  - r_words = [word for word in words if word.startswith('r')]  
+  - r_words = filter(lambda word: word.startswith('r'), words)
+    + filer 역시 filter 타입으로 임시 저장을 함, map과 함께 list(r_words) 이런 식으로 호출해야 정상 연산됨
+    
+  
+  
+  
