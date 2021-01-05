@@ -21,15 +21,14 @@ comments: true
   - np.empty : 초기화가 없는 값으로 배열 반환
   - np.arange(n) : 배열 버전의 range 함수
   - np.random : 다양한 난수가 들어 있는 배열
-    + 0이상 10미만의 랜덤한 값이 들어 있는 2*4 크기 배열 생성 : np.random.randint(0,10,(2,4)
+    + 0이상 10미만의 랜덤한 값이 들어 있는 2*4 크기 배열 생성 : np.random.randint(0,10,(2,4))
     
-```python
-import numpy as np
-# 0부터 5사이 랜덤한 값이 담긴 3 x 5 array를 만들어 보자.
-
-array = np.random.randint(0, 5, (3, 5))
-print(array)
-```
+  ~~~python
+  # 0부터 5사이 랜덤한 값이 담긴 3 x 5 array를 만들어 보자.
+  import numpy as np
+  array = np.random.randint(0, 5, (3, 5))
+  # np.random.randint(지정할 첫 범위(이상), 지정할 끝 범위(미만), (배열 크기))
+  ~~~
 
 * __배열의 기초__
   - x2 = np.random.randint(10, size = (3,4))
@@ -40,8 +39,55 @@ print(array)
   - x.reshape(2,4) : array의 shape를 변경
   - np.concatenate([x,y] : array(x, y)를 이어 붙임
   - np.split : axis 축을 기준으로 나눌 수 있다.  
-    
-    
+
+  ~~~python
+  # 1차원 array 만들기
+  import numpy as np
+  print("1차원 array")
+  array = np.arange(10) # 0이상 10미만의 정수 배열 만들기
+
+  print(type(array)) # array의 자료형 출력 : <class 'numpy.ndarray'>
+  print(array.ndim) # array의 차원 출력 : 1
+  print(array.shape) # array의 모양 출력 : (10, )
+  print(array.size) # array의 크기 출력 : 10(= 10 * 1)
+  print(array.dtype) # array의 dtype(data type) 출력 : int64
+  print(array[5]) # array의 인덱스 5 요소 출력 : 5
+  print(array[3:6]) # array의 인덱스 3 요소 부터 인덱스 5 요소까지 출력 : [3 4 5]
+  ~~~
+
+  ~~~python
+  # 2차원 array 만들기
+  import numpy as np
+  print("2차원 array")
+  matrix = np.arange(1, 16).reshape(3, 5) # 1부터 15까지 들어 있는 (3, 5)짜리 배열 만들기
+
+  print(type(matrix)) # matrix의 자료형 출력 : <class 'numpy.ndarray'>
+  print(matrix.ndim) # matrix의 차원 출력 : 2
+  print(matrix.shape) # matrix의 모양 출력 : (3, 5)
+  print(matrix.size) # matrix의 크기 출력 : 15(= 3 * 5)
+  print(matrix.dtype) # matrix의 dtype(data type) 출력 : int64
+  print(matrix[2, 3]) # matrix의 인덱스 (2, 3) 요소 출력 : 14
+  print(matrix[0:2, 1:4]) # matrix의 행은 인덱스 0부터 1까지, 열은 인덱스 1부터 3까지 출력 
+  ~~~
+
+  ~~~python
+  # np.concatenate() 실습 : array를 서로 합침
+  import numpy as np
+  matrix = np.array([[0,1,2,3], [4,5,6,7]])
+
+  m = np.concatenate([matrix, matrix], axis = 0] # matrix 두 개를 세로로(axis = 0) 붙이기
+  m = np.concatenate([matrix, matrix], axis = 1] # matrix 두 개를 가로로(axis = 1) 붙이기
+  ~~~
+
+  ~~~python
+  # np.split() 실습 : array를 axis 기준으로 분리
+  import numpy as np
+  matrix = np.array([[0,1,2,3], [4,5,6,7], [8,9,10,11], [12,13,14,15]])
+
+  a, b = np.split(matrix, [3], axis=0) # matrix를 [3]행(행 2번째~3번째 사이)에서 axis=0으로 나누기(세로로 쪼개기)
+  a, b = np.split(matrix, [1], axis=1) # matrix를 [1]열(열 1번째~2번째 사이)에서 axis=1으로 나누기(가로로 쪼개기)
+  ~~~
+
 * __기본 연산__
   - NumPy는 기본 연산을 지원한다(+, -, *, /)
   - 브로드캐스팅 : Shape이 다른 array끼리 연산
@@ -58,7 +104,54 @@ print(array)
       + x < 3 
       + x > 5
       + x[x < 3] : x가 3보다 작은 값들(True)만 추출
-    
+
+  ~~~python
+  # Numpy 기본 연산
+  import numpy as np
+  array = np.array([1,2,3,4,5])
+  array1 = np.array([5,4,3,2,1])
+
+  print(array + 5) # array에 5 더한 값 출력
+  print(array - 5) # array에 5 뺀 값 출력
+  print(array * 5) # array에 5 곱한 값 출력
+  print(array / 5) # array에 5 나눈 값 출력
+  print(array + array1) # array에 array1을 더한 값 출력
+  print(array - array1) # array에 array1을 뺀 값 출력
+  ~~~
+
+  ~~~python
+  # Numpy 브로드캐스팅 : 배열 크기가 다른 array 끼리의 연산
+  import numpy as np
+  A = np.arange(6).reshape(6, 1)
+  B = np.arange(6)
+  print(A + B) # (6, 6)짜리 배열이 생성되며, 각 행과 열의 요소를 더한 값으로 채워짐
+  ~~~
+
+  ~~~python
+  # numpy 집계함수 & 마스킹연산(조건식을 통해 배열에서 원하는 값 추출)
+  import numpy as np
+  matrix = np.arange(8).reshape((2,4))
+
+  print(np.sum(matrix)) # sum함수로 matrix 총 합계 출력
+  print(np.max(matrix)) # max함수로 matrix 중 최댓값 출력
+  print(np.min(matrix)) # min함수로 matrix 중 최솟값 출력
+  print(np.mean(matrix)) # mean함수로 matrix 평균값 출력
+  print(np.sum(matrix, axis = 0)) # sum함수의 axis 매개변수(axis=0)로 각 열의 합 출력
+  print(np.sum(matrix, axis = 1)) # sum함수의 axis 매개변수(axis=1)로 각 행의 합 출력
+  print(np.std(matrix)) # std함수로 matrix 표준편차 출력
+  print(matrix[matrix < 5]) # 마스킹 연산 활용 - matrix 중 5보다 작은 수만 추출하여 출력
+  ~~~
+
+  ~~~python
+  # 양치기 소년의 거짓말 몇 번 했는지 구하기
+  import numpy as np
+  liar_data = [0, 0, 1] # 거짓말 = 0, 진실 = 1
+
+  liar_array = np.array(liar_data)
+  print(len(liar_array[liar_array == 0])) # 아래와 동일 결과값 추출
+  print(np.count_nonzero(liar_array == 0)) # np.count_nonzero : 0이거나 False인 데이터를 하나씩 count 해주는 함수
+  ~~~
+
 ---
 
 수학적인 연산을 쉽게 할 수 있는 NumPy에 대해 배워보았다.
