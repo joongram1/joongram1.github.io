@@ -21,7 +21,8 @@ comments: true
   - np.empty : 초기화가 없는 값으로 배열 반환
   - np.arange(n) : 배열 버전의 range 함수
   - np.random : 다양한 난수가 들어 있는 배열
-    + 0이상 10미만의 랜덤한 값이 들어 있는 2*4 크기 배열 생성 : np.random.randint(0,10,(2,4))  
+    + 0이상 10미만의 랜덤한 값이 들어 있는 2*4 크기 배열 생성 : np.random.randint(0,10,(2,4))
+    
     
   ~~~python
   # 0부터 5사이 랜덤한 값이 담긴 3 x 5 array를 만들어 보자.
@@ -29,6 +30,7 @@ comments: true
   array = np.random.randint(0, 5, (3, 5))
   # np.random.randint(지정할 첫 범위(이상), 지정할 끝 범위(미만), (배열 크기))
   ~~~
+
 
 * __배열의 기초__
   - x2 = np.random.randint(10, size = (3,4))
@@ -39,6 +41,7 @@ comments: true
   - x.reshape(2,4) : array의 shape를 변경
   - np.concatenate([x,y] : array(x, y)를 이어 붙임
   - np.split : axis 축을 기준으로 나눌 수 있다.  
+
 
   ~~~python
   # 1차원 array 만들기
@@ -88,6 +91,7 @@ comments: true
   a, b = np.split(matrix, [1], axis=1) # matrix를 [1]열(열 1번째~2번째 사이)에서 axis=1으로 나누기(가로로 쪼개기)
   ~~~
 
+
 * __기본 연산__
   - NumPy는 기본 연산을 지원한다(+, -, *, /)
   - 브로드캐스팅 : Shape이 다른 array끼리 연산
@@ -103,7 +107,8 @@ comments: true
     x = np.arange(5)
       + x < 3 
       + x > 5
-      + x[x < 3] : x가 3보다 작은 값들(True)만 추출
+      + x[x < 3] : x가 3보다 작은 값들(True)만 추출  
+      
 
   ~~~python
   # Numpy 기본 연산
