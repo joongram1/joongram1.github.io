@@ -3,7 +3,7 @@ layout: post
 title: TIL 2020-12-30 
 subtitle: TIL 
 categories: dev
-tags: til 앨리스코딩 파이썬 데이터분석
+tags: til 앨리스코딩 파이썬 데이터분석 데이터정렬 데이터변환 split strip Counter sorted itemgetter
 comments: true
 ---
 
@@ -28,7 +28,7 @@ comments: true
         contents.append(line)  
         
   - with open('data.txt', 'w') as file:  
-    file.write('Hello')  # 쓰기 모드로 파일을 염 </br>
+    file.write('Hello')  # 쓰기 모드로 파일을 염</br>
     
   ~~~python
   # 파일 열어 "(줄번호) (내용)" 형식으로 출력하기
@@ -47,7 +47,7 @@ comments: true
   - split = line.strip().split(',') 
     + strip() : 문자열에 사용하는 함수로 앞 뒤의 공백문자를 삭제함
     
-  - 데이터 형태 변환하기 </br>
+  - 데이터 형태 변환하기</br>
 
   ~~~python
   def import_as_tuple(filename):
@@ -64,7 +64,7 @@ comments: true
  
   - 리스트로 리스트 만들기(List comprehension)
     + first_letters = [word[0] for word in words]
-    + new_numbers = [n + 1 for n in numbers] </br>
+    + new_numbers = [n + 1 for n in numbers]</br>
   ~~~python
   # 한 줄 명령어로 데이터 다루기
   words = ['apple','banana','alpha']
@@ -79,7 +79,7 @@ comments: true
     + odd = [n + 1 for n in numbers if n % 2 == 0]  
     
   - 데이터 정렬하기
-    + sory_by_abs = sorted(numbers, key=abs) # 절대값 순으로 정렬 </br>
+    + sory_by_abs = sorted(numbers, key=abs) # 절대값 순으로 정렬</br>
   ~~~python
   new_nums = sorted([-4, 1, -3], key=abs) # abs() : 절댓값을 리턴하는 파이썬 내장함수
   ~~~
@@ -91,7 +91,7 @@ comments: true
       
     + sorted(corpus, key=itemgetter(1), reverse=True)[:number]  
       corpus 데이터(튜플로 이루어짐) 중 각 튜플 데이터의 1번째 인덱스값(key=itemgetter(1)을 기준으로  
-      내림차순 정렬(reverse=True), 이후 number값 개수만큼 가장 높은 순으로 데이터 추림  </br>
+      내림차순 정렬(reverse=True), 이후 number값 개수만큼 가장 높은 순으로 데이터 추림</br>
     
   ~~~python
   # 데이터 정렬하기(sorted() 사용)
@@ -123,7 +123,7 @@ comments: true
  
   * __Counter()__
     - corpus = Counter(words) : words 문자열에 포함된 각 알파벳의 글자수를 세어줌
-    - Collections 모듈의 Counter 클래스 </br>
+    - Collections 모듈의 Counter 클래스</br>
 
   ~~~python
   # 영어 단어 모음 분석하기 실습
