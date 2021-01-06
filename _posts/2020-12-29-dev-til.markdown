@@ -22,16 +22,108 @@ comments: true
   
   
 * __문자열 함수__
-  - word.starswith('s') : s로 시작하는 단어일 경우 True 반환
+  - word.starswith('s') : s로 시작하는 단어일 경우 True 반환 </br>
+  ~~~python
+  # 문자열로 구성된 리스트에서 k로 시작되는 문자열 출력하는 함수
+  def print_korea(tweet):
+    for word in tweet:
+      if word.startswith('k'):
+        print(word)
+  ~~~
+  
   - word.split(',') : ','를 기준으로 문자를 나눈다
-    + 대표적인 공백문자 : ' ' - 빈칸(스페이스바), '\t' - Tab(Tab키), '\n' - Newline(엔터키)
-  - numbers.append(1) : 1을 numbers 리스트 맨 마지막에 추가
-  - intro.lower() : intro에 있는 모든 요소를 소문자로 변환
-    + lower_intro = intro.lower() : 변환된 값을 새로운 값에 넣어줘어야 출력이 됨
-  - intro.upper() : intro에 있는 모든 요소를 대문자로 변환
-  - intro.replace('Elice', '앨리스') : 'Elice'를 '앨리스'로 변경
-    + sentence.replace(",", "").replace("'", "").replace("!", "") : 연속 사용 가능
+    + 대표적인 공백문자 : ' ' - 빈칸(스페이스바), '\t' - Tab(Tab키), '\n' - Newline(엔터키) </br>
+  ~~~python
+  def break_into_words(text):
+    words = text.split()
+    return words
+  ~~~
     
+  - numbers.append(1) : 1을 numbers 리스트 맨 마지막에 추가 </br>
+  ~~~python
+  def make_new_list(text):
+    new_list = []
+    for word in text:
+      if word.startswith('b'):
+        new_list.append(word)
+    
+    return new_list
+  ~~~
+  
+  - intro.lower() : intro에 있는 모든 요소를 소문자로 변환
+    + lower_intro = intro.lower() : 변환된 값을 새로운 값에 넣어줘어야 출력이 됨 
+  - intro.upper() : intro에 있는 모든 요소를 대문자로 변환 </br>
+  ~~~python
+  def lowercase_all_characters(text):
+    processed_text = []
+    for sentence in text:
+      lower_sentence = sentence.lower()
+      processed_text.append(lower_sentence)
+    
+    return processed_text
+  ~~~
+  
+  - intro.replace('Elice', '앨리스') : 'Elice'를 '앨리스'로 변경
+    + sentence.replace(",", "").replace("'", "").replace("!", "") : 연속 사용 가능 </br>
+  ~~~python
+  def remove_special_characters(text):
+    processed_text = []
+    for sentence in text:
+      sentence = sentence.replace(",", "").replace("'", "").replace("!", "")
+      processed_text.append(sentence)
+    
+    return processed_text
+  ~~~
+
+  ~~~python
+  # 트럼프 대통령 트윗 분석하기 실습
+  from tweets import trump_tweets # 트럼프 대통령의 트윗 모음 불러오기(본 TIL에서는 무의미)
+  import matplotlib.pyplot as plt
+  import numpy as np
+  from collections import Counter # 특화된 컨테이너 모듈(Collections)에서 수 세기를 돕는 메소드 Counter 불러오기
+  from string import punctuation # 문자열 모듈(string)에서 특수문자 처리를 돕는 메소드 puntuation 불러오기
+  
+  # preprocess_text 함수 정의
+  def preprocess_text(text):
+    text = text.lower()
+    
+    symbols = punctuation.replace("@", "").replace("#", "") # @와 #을 제외한 특수문자를 symbols에 저장
+    for symbol in symbols:
+      text = text.replace(symbol, "")
+    words = text.split()
+  
+    return words
+    
+  # analyze_text 함수 정의
+  def analyze_text(words):
+    keywords, hashtags, mentions = [], [], []
+    
+    for word in words:
+      if word.startswith('@'):
+        keywords.append(word[1:])
+        mentions.append(word[1:])
+      elif word.startswith('#'):
+        keywords.append(word[1:])
+        hashtags.append(word[1:])
+      else:
+        keywords.append(word)
+        
+    return keywords, hashtags, mentions
+  
+  # filter_by_month 함수 정의
+  def filter_by_month(tweet_data, month)
+    month_string = '0' + str(month) if month < 10 else str(month) 
+    # month를 문자열로 바꾼 후, 10 미만이면 앞에 0을 붙이고 그 외는 month 그대로 저장
+    
+    filtered_tweets = []
+    for date, tweet in tweet_data:
+      if date.startswith(month_string):
+        filtered_tweets.append(tweet)
+        
+    return filtered_tweets
+  ~~~
+  
+
 ---
 
 지난 강의보다 난이도가 조금 올라갔다.  
