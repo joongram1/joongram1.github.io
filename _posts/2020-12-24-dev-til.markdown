@@ -269,18 +269,18 @@ comments: true
 
 
 
-~~~python
-# 피리부는 사나이 > 남자, 여자 어린이의 평균연령을 표로 출력
-import pandas as pd
-import numpy as np
-df = pd.read_csv("./data/the_pied_piper_of_hamelin.csv")
+  ~~~python
+  # 피리부는 사나이 > 남자, 여자 어린이의 평균연령을 표로 출력
+  import pandas as pd
+  import numpy as np
+  df = pd.read_csv("./data/the_pied_piper_of_hamelin.csv")
 
-children = df[df["구분"] == "Child"] # df의 '구분' 컬럼 값이 Child(어린이)인 것만 추출하여 children에 저장 
-children_age = children.groupby('일차').mean() # children을 '일차' 컬럼별로 묶고, 각 평균값을 children_age에 저장
+  children = df[df["구분"] == "Child"] # df의 '구분' 컬럼 값이 Child(어린이)인 것만 추출하여 children에 저장 
+  children_age = children.groupby('일차').mean() # children을 '일차' 컬럼별로 묶고, 각 평균값을 children_age에 저장
 
-df2 = children.pivot_table(index="일차", columns="성별", values="나이", aggfunc=np.mean) 
-# children 데이터를 "일차"를 인덱스로, "성별"을 컬럼으로 받고, 평균 연령값을 넣어 df2에 저장
-~~~
+  df2 = children.pivot_table(index="일차", columns="성별", values="나이", aggfunc=np.mean) 
+  # children 데이터를 "일차"를 인덱스로, "성별"을 컬럼으로 받고, 평균 연령값을 넣어 df2에 저장
+  ~~~
 
 ---
 
