@@ -168,6 +168,62 @@ comments: true
   plt.tight_layout
   ~~~
 
+  ~~~python
+  # 넷플릭스 시청 데이터 분석하기 실습
+  import matplotlib.pyplot as plt
+  import json
+  from operator import itemgetter
+  
+  from movies import titles 
+  
+  # 입력 받은 JSON 데이터를 딕셔너리 형태로 반환
+  def preprocess_data(filename):
+    processed = {}
+    with open(filename) as file:
+      # 입력 받은 JSON 파일을 불러와 loaded에 저장
+      file = file.read()
+      loaded = json.loads(file)
+      
+      # JSON 데이터에서 영화, 사용자 정보를 하나씩 가져옴
+      for title, users in loaded.items():
+        title = int(title)
+        # processed 딕셔너리에 title을 키로, user를 값으로 저장
+        processed[title] = users
+    return processed
+  
+  # 작품 별 시청한 사용자 데이터를 사용자 별 시청 작품이 담긴 딕셔너리로 반환
+  def reformat_data(title_to_users):
+    user_to_titles = {}
+    for title, users in title_to_users.items():
+      # user_to_titles에 사용자 정보가 있을 경우 사용자의 영화 정보(리스트 형태)로 저장
+      for user in users:
+        if user in user_to_tiles:
+          user_to_titles[user].append(title) # user를 키로 하는 value값(리스트)에 title 추가
+        
+        # user_to_titles에 사용자 정보 없을 경우, 사용자 정보 + 영화 정보 함께 key, value값으로 추가
+        else:
+          user_to_titles[user] = title 
+    
+    return user_to_titles
+      
+  # 두 작품의 유사도 구하기
+  def get_closeness(title_to_users, title1, title2)
+    title1_users = set(title_to_users[title1])
+    title2_users = set(title_to_users[title2])
+    
+    closeness = len(title1_users & title2_users) / len(title1_users | title2_users)
+    return closeness
+    
+  # 작품1(title)과 사용자A(user)가 주어졌을 때, 예상 선호도를 계산
+  def predict_preference(title_to_users, user_to_titles, user, title)
+    user_title = user_to_titles[user]
+    # List Comprehension 사용, title1은 user_title에서 1개씩 꺼내서 title과 유사도를 각각 구하기
+    closeness = [get_closeness(title_to_users, title1, title) for title1 in user_title]
+    
+    # 유사도가 포함된 리스트의 합계를 유사도 수로 나눠 선호도(평균값) 도출
+    return sum(closeness) / len(closeness)
+  ~~~
+
 ---
 
 딕셔너리와 JSON 데이터 간 상호 호환되는 부분이 인상 깊었다.  
