@@ -11,7 +11,7 @@ comments: true
 > 2021-01-01 TIL(Today I learned)
 ---
 
-> `앨리스코딩`의 `"파이썬 실전 데이터 분석"` 강의를 듣고 작성한 노트 입니다.
+##### `앨리스코딩`의 `"파이썬 실전 데이터 분석"` 강의를 듣고 작성한 노트 입니다.
 ---
 
 * __CSV__
@@ -19,22 +19,71 @@ comments: true
     + name, age, address, gender
     + 각 열이 특정한 의미를 가짐, 시각화 하기 수월함, 용량이 작음, 데이터 오염에 취약함
     + name "|" age "|" address "|" gender : delimiter(|)도 구분 문자로 사용 가능 
-    + 데이터에 ,가 포함된 경우 : ""(큰따옴표)로 데이터를 감싼다
+    + 데이터에 ,가 포함된 경우 : ""(큰따옴표)로 데이터를 감싼다</br>
   
-  - import csv  
-    with open('movies.csv') as file:
-    + reader = csv.reader(file, delimiter=',') : csv 데이터를 ,기준으로 분리
-    + for row in reader:  
-      title = row[0]  
-      author = row[1]  
-      pages = row[3]  
-      print("{} ({}) {}p".format(title, author, pages))
+  ~~~python
+  # csv 데이터 읽고 처리하기
+  import csv
+  
+  def print_book_info(filename):
+    with open(filename) as file:
+      # ',' 기호로 분리된 CSV 파일 처리
+      reader = csv.reader(file, delimiter=',') 
       
-* __lambda__ : 한줄짜리 선언하는 등 짧게 사용하는 함수 정의할 때 사용
-  - def square(x) :  
-    return x * x 
-  - square = lambda x : x * x
-    + return 생략, 좀 더 간결하게 코딩 가능  
+      # 처리된 파일의 각 줄을 불러오기
+      for row in reader:
+        title, author, pages = row[0], row[1], row[3]
+        print("{} ({}): {}p".format(title, author, pages))
+  ~~~
+
+  ~~~python
+  # CSV 데이터 변환하기(to JSON)
+  import csv
+  import json
+
+  def books_to_json(src_file, dst_file):
+    books = []
+    with open(src_file) as src:
+      reader = csv.reader(src, delimiter=',')
+
+      # 각 줄 별로 대응되는 book 딕셔너리 생성
+      for line in reader:
+        book = {"title":line[0], "author":line[1], "genre"=line[2], "pages":int(line[3]), "publisher":line[4]}
+        books.append(book)
+
+    # JSON 형식으로 dst_file에 변환하여 저장(쓰기 모드 설정 필수)
+    # json_string에 books 딕셔너리 dumps해서 저장, 그 후 dst에 json_string 쓰기(저장)
+    with open(dst_file, 'w') as dst:
+      json_string = json.dumps(books)
+      dst.write(json_string)
+  ~~~
+      
+* __lambda__ : 한줄짜리 선언하는 등 짧게 사용하는 함수 정의할 때 사용</br>
+  ~~~python
+  # lambda 실습 - 한 줄 함수 작성하기
+  # num을 제곱한 값을 반환
+  def _square(num): 
+    return num * num
+  
+  square = lambda num: num * num
+  
+  # string이 빈 문자열일 경우 빈 문자열을, 아니면 첫 번째 글자를 반환
+  def _first_letter(string):
+    return string[0] if string else ''
+    
+  first_letter = lambda string: string[0] if string else ''
+  
+  # assert를 이용, 두 함수의 기능이 동일한 지 테스트
+  # 두 값이 같으면 통과, 아니면 에러(AssertionError)  
+  testcase1 = [3,10,7,1,-5]
+  for num in testcases1:
+    assert(_square(num) == square(num))
+    
+  testcase2 = ['', 'hello'm 'elice']
+  for string in testcase2:
+    assert(_first_letter(string) == first_letter(string))
+  
+  ~~~
     
   - def get_eng_title(row):  
     split = row.split(',')  
@@ -46,19 +95,41 @@ comments: true
     
   - sorted(movies, key=lambda row: row.split(','[1])  
   
-  - def square(x):  
-    return x * x  
-    square2 = lambda x: x * x  
-    
-    assert(square1(3) == square2(3)) # 두 값이 같으면 통과, 아니면 에러(AssertionError)  
-  
   - if condition:  
     answer = 'a'  
     else:  
     answer = 'b'  
     
   - answer = 'a' if condition else 'b' 
+
+~~~python
+# 함수를 리턴하는 함수
+# 주어진 값이 정수가 아니거나(or) 최솟값(minimum)보다 작으면 False를 리턴하는 함수를 리턴
+def min_validator(minimum):
+  def helper(n):
+    # n의 타입이 정수가 아니면 False 리턴
+    if type(n) is not int:
+      return False
+    
+    # 최솟값보다 크거나 같은 경우 True 리턴하므로 아래와 같이 약식 표기
+    return minimum <= n 
   
+  # min_validator 함수에서 minimum 값을 받아 helper 함수에 minimum 값 제공하여 반환
+  return helper
+
+# 주어진 값이 정수가 아니거나(or) 최댓값(maximum)보다 크면 False를 리턴하는 함수를 리턴
+def max_validator(maximum):
+  def helper(n):
+    # n의 타입이 정수가 아니면 False 리턴
+    if type(n) is not int:
+      return False
+    
+    # 최댓값보다 작거나 같은 경우 True 리턴하므로 아래와 같이 약식 표기
+    return n <= maximum
+    
+  return helper
+~~~
+
 ---
 
 마지막 주 강의인데 쉽지 않다.  
